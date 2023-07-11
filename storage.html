@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function loadVal() {
+
+        getsession();
+        getlocal();
+
+    }
+    function getsession() {
+        var sessiondata=document.getElementById("sd");
+        var data = sessionStorage.getItem(1);
+        if(data)
+        {
+            sessiondata.innerHTML = "The data session "+ data;
+        }
+    }
+    function getlocal() {
+        var localdata=document.getElementById("ld");
+        var data = localStorage.getItem(1);
+        if(data)
+        {
+            localdata.innerHTML = "The data local "+ data;
+        
+    }
+}
+    function savesession() {
+        var sessiondata=document.getElementById("ss");
+        var data = sessiondata.value;
+        sessionStorage.setItem(1,data);
+        getsession();
+    }
+    function savelocal() {
+        var localdata=document.getElementById("ls");
+        var data = localdata.value;
+        localStorage.setItem(1,data);
+        getlocal();
+    }
+</script>
+<body>
+    <div>
+        <h2>Session Storage</h2><br>
+        <input type="text" id="ss" /><br>
+        <a href="javascript:savesession()">Save Session</a> <br>
+        <div id="sd"></div><br>
+
+        <h2>Local Storage</h2><br>
+        <input type="text" id="ls" /><br>
+        <a href="javascript:savelocal()">Save Local</a><br>
+        <div id="ld"></div>
+    </div>
+    
+</body>
+</html>

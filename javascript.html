@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js</title>
+    <script>
+        var nsa=prompt("Enter No Of Student");
+        var student = new Array(parseInt(nsa));
+        for(var i=0;i<parseInt(nsa);i++)
+        {
+        var name=prompt("Enter"+ parseInt(i+1)+ "Student Name :");
+        var ns=prompt("Enter No of Subjects");
+        
+        let marks = [];
+        
+        let tm=0;
+        for(var i=0;i<parseInt(ns);i++)
+        {
+            marks[i]=prompt("Enter Marks of Subject :"+parseInt(i+1)+" (Out of 100)");
+            tm += parseInt(marks[i]);
+        }
+       let per = parseFloat(tm/ns);
+       student[i]= new Array(name,toString(per),toString(tm));
+    }
+      
+       
+       function checkgrade(per){
+        if(per>=80)
+         return "A";
+       else if(per>=60)
+         return "B";
+       else
+         return "F";
+       }
+      for(var i=0;i<parseInt(nsa);i++){
+        document.write("Students Details :");
+        document.write("<br>");
+        document.write("Student : "+parseInt(i+1));
+        document.write("<br>");
+        document.write("Name: "+student[i][0]);
+        document.write("<br>");
+        document.write("Total Marks: "+student[i][1]);
+        document.write("<br>");
+        document.write("Percentage: "+student[i][2]);
+        document.write("<br>");
+        document.write("Grade: "+checkgrade(student[i][2]));}
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
